@@ -8,7 +8,6 @@ export default defineConfig({
       },
     }),
   ],
-    base:'/portfolio-start-project-vite/',
   resolve: {
     alias: {
       "@": "/src",

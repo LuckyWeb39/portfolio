@@ -4,7 +4,7 @@ import styled from "styled-components";
 import {ContactIcons} from "../../components/contactsIcons/ContactIcons.tsx";
 import {Container} from "../../components/container/Container.tsx";
 import {FlexWrapper} from "../../components/flexWrapper/FlexWrapper.tsx";
-import {MobileMenu} from "../../components/mobileMenu/MobileMenu.tsx";
+// import {MobileMenu} from "../../components/mobileMenu/MobileMenu.tsx";
 
 const items = ['Tech Stack', 'Projects', 'Contacts']
 

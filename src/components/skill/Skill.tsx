@@ -2,11 +2,17 @@ import {Icon} from "../icon/Icon.tsx";
 import styled from "styled-components";
 import {Theme} from "../../styles/Theme.tsx";
 
-export const Skill = (props:{skillIcon:Array<object>}) => {
+
+interface Skill {
+    title: string;
+    viewBox: string;
+}
+
+export const Skill = (props: { skillIcon: Skill[] }) => {
     return (
-        <GridWrapperSkills >
-            {props.skillIcon.map((skill:object, index:number)=>{
-                return <Icon iconId={skill.title} viewBox={skill.viewBox} key={index}/>
+        <GridWrapperSkills>
+            {props.skillIcon.map((skill: Skill, index: number) => {
+                return <Icon iconId={skill.title} viewBox={skill.viewBox} key={index} />;
             })}
         </GridWrapperSkills>
     );
