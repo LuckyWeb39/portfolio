@@ -58,11 +58,12 @@ const skillsItems = [
 
 export const Skills = () => {
     return (
-        <StyledSkills>
+        <StyledSkills id="skills">
             <Container>
                 <SectionTittle tittle={'My Tech Stack'}/>
                 <SectionDescription description={' Technologies I’ve been working with recently'}/>
-                <Skill skillIcon={skillsItems}/>
+                    <Skill skillIcon={skillsItems}/>
+
             </Container>
         </StyledSkills>
     );
@@ -72,4 +73,5 @@ const StyledSkills = styled.section`
     background-color: #1e1e1e;
     width: 100%;
     min-width: 375px;
+    position: relative;
 `

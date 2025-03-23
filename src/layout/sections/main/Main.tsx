@@ -3,6 +3,7 @@ import avatar from "../../../assets/images/MainPhoto.webp"
 import styled from "styled-components";
 import {Theme} from "../../../styles/Theme.tsx";
 import {Container} from "../../../components/container/Container.tsx";
+import Typewriter from 'typewriter-effect';
 // import abstact from "../../../assets/images/Abstract.svg"
 
 export const Main = () => {
@@ -13,8 +14,17 @@ export const Main = () => {
                     <div>
                         <MainTittle>Hi &#128075;, </MainTittle>
                         <MainTittle>My name is</MainTittle>
-                        <MainTittleGradient>Aleksand Lukomskiy</MainTittleGradient>
-                        <MainTittleH1>A Web Developer.</MainTittleH1>
+                        <MainTittleGradient>Aleksandr Lukomskiy</MainTittleGradient>
+                        <MainTittleH1>
+                            <Typewriter
+                                options={{
+                                    strings: ['A Web Developer.', 'A Frontend Developer.'],
+                                    autoStart: true,
+                                    loop: true,
+                                }}
+                            />
+                            <p>A Web Developer.</p>
+                        </MainTittleH1>
                     </div>
                     <AvatarBorderGradient>
                         <Avatar src={avatar}/>
@@ -29,7 +39,7 @@ export const Main = () => {
 };
 
 const StyledMain = styled.section`
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
 
     
@@ -113,6 +123,10 @@ const MainTittleH1 = styled.h1`
     line-height: 1.2069;
     letter-spacing: -0.02em;
     color: ${Theme.colors.font};
+
+    p {
+        display: none;
+    }
     
     @media ${Theme.media.mobile} {
         font-size: 39px;

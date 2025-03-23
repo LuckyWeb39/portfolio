@@ -9,7 +9,8 @@ type ProjectPropsType = {
     title: string,
     description: string,
     link: string,
-    linkGithub: string
+    linkGithub: string,
+    type: string,
 }
 
 export const Project = (props: ProjectPropsType) => {
@@ -27,7 +28,6 @@ export const Project = (props: ProjectPropsType) => {
 
                     <ProjectLink href={props.link}>
                         <AnimationLink/>
-                        {/*<Icon iconId={'link'} height={'20px'} width={'20px'} viewBox={'0 0 20 20'}/>*/}
                         Live Preview
                     </ProjectLink>
 
@@ -57,14 +57,13 @@ const StyledProjectCard = styled.article`
 `
 const ProjectImage = styled.img`
     border-radius: 20px 20px 0 0;
-    //max-width: 375px;
     width: 100%;
     
 `
 
 const ProjectInfoWrapper = styled.div`
 padding: 30px;
-    max-width: 375px;
+    
 `
 
 const ProjectTitle = styled.h3`
@@ -106,17 +105,17 @@ const ProjectLink = styled.a`
         -webkit-text-fill-color: transparent;
 
 
-        svg{
-            .bottomLink {
-                transition: transform 0.3s ease; /* Плавный переход */
-                transform: translate(-1px, 1px); /* Движение вверх на 1 пиксел */
-            }
-            .topLink {
-                transition: transform 0.3s ease; /* Плавный переход */
-                transform: translate(1px, -1px); /* Движение вверх на 1 пиксел */
-            }
-
-        }
+        //svg{
+        //    .bottomLink {
+        //        transition: transform 0.3s ease; /* Плавный переход */
+        //        transform: translate(-1px, 1px); /* Движение вверх на 1 пиксел */
+        //    }
+        //    .topLink {
+        //        transition: transform 0.3s ease; /* Плавный переход */
+        //        transform: translate(1px, -1px); /* Движение вверх на 1 пиксел */
+        //    }
+        //
+        //}
 
 
         stroke: rgb(231 15 170);
@@ -136,16 +135,24 @@ const ProjectLinkGithub = styled.a`
     text-decoration: underline;
     text-decoration-skip-ink: none;
     color: #fff;
-    fill: #FCFCFC;
+    
+    svg {
+        fill: #FCFCFC;
+    }
     
 
     &:hover {
+        transition: all .5s ease;
+        
         background: linear-gradient(90deg, #13b0f5 2.6%, #e70faa 100%);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
 
-        fill: rgb(231 15 170);
+        svg {
+            fill: #13B0F5FF;
+        }
+        
         
     }
     

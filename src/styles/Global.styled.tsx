@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         background-color: #191919;
         line-height: 1.2;
+        min-height: 375px;
     }
 
     a {

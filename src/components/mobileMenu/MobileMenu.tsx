@@ -1,19 +1,48 @@
 import styled, {css} from "styled-components";
 import {Theme} from "../../styles/Theme.tsx";
+import {useState} from "react";
+import {Link} from "react-scroll";
 
-export const MobileMenu = (props: { menuItems: Array<string> }) => {
+
+export const MobileMenu = () => {
+
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const onBurgerClick = () => { setMenuOpen(!menuOpen); };
+
+    const items = [
+        {
+            title: "Tech Stack",
+            href: "skills",
+        },
+        {
+            title: "Projects",
+            href: "projects",
+        },
+        {
+            title: "Contacts",
+            href: "contacts",
+        },
+    ]
+
+
     return (
         <StyledMobileMenu>
 
-            <BurgerButton isOpen={true}>
+            <BurgerButton isOpen={menuOpen} onClick={onBurgerClick}>
                 <span></span>
             </BurgerButton>
 
-            <MobileMenuPopUp isOpen={true}>
+            <MobileMenuPopUp isOpen={menuOpen} onClick={() => setMenuOpen(false)} >
                 <ul>
-                    {props.menuItems.map((arrayItems: string, index: number) => {
+                    {items.map((arrayItems, index) => {
                         return <li key={index}>
-                            <a href={'#'}>{arrayItems}</a>
+                            <StyledMenuMobileLink
+                                activeClass='active'
+                                to={arrayItems.href}
+                                smooth={true}>
+                                {arrayItems.title}
+                            </StyledMenuMobileLink>
                         </li>
                     })}
                 </ul>
@@ -25,7 +54,7 @@ export const MobileMenu = (props: { menuItems: Array<string> }) => {
 
 const StyledMobileMenu = styled.nav`
     display: none;
-
+    
     @media ${Theme.media.tablet} {
         display: block;
     }
@@ -78,6 +107,7 @@ const BurgerButton = styled.button<{ isOpen: boolean }>`
             ${props => props.isOpen && css<{ isOpen: boolean }>`
                 transform: rotate(45deg) translateY(0);
                 width: 36px;
+                
             `}
         }
     }
@@ -89,31 +119,21 @@ const MobileMenuPopUp = styled.div<{ isOpen: boolean }>`
     right: 0;
     bottom: 0;
     top: 0;
-    background-color: rgba(30, 30, 30, 0.89);
+    background-color: rgba(30, 30, 30, 0.93);
     z-index: 9999;
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-100%);
+    transition: .8s ease-in-out;
+
+    
+
 
     ${props => props.isOpen && css<{ isOpen: boolean }>`
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        transform: translateY(0);
     `}
-    
-    a {
-        color: ${Theme.colors.fontsSecondary};
-        font-size: 35px;
-        font-weight: bold;
-        line-height: 130%;
-
-        &:hover {
-            background: linear-gradient(-90deg, #13b0f5 2.6%, #e70faa 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-    }
-
+  
     ul {
         display: flex;
         gap: 80px;
@@ -121,4 +141,22 @@ const MobileMenuPopUp = styled.div<{ isOpen: boolean }>`
         align-items: center;
         justify-content: center;
     }
+`
+
+const StyledMenuMobileLink = styled(Link)`
+
+    color: ${Theme.colors.fontsSecondary};
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 130%;
+    cursor: pointer;
+
+
+    &:active {
+        background: linear-gradient(-90deg, #13b0f5 2.6%, #e70faa 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
 `

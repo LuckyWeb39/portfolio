@@ -5,10 +5,38 @@ import {MainTittle, MainTittleGradient} from "../main/Main.tsx";
 import {Theme} from "../../../styles/Theme.tsx";
 import {Icon} from "../../../components/icon/Icon.tsx";
 import {StyledButton} from "../../../components/buttonForm/ButtonForm.tsx";
+import emailjs from '@emailjs/browser';
+import {ElementRef, useRef} from "react";
+
+
 
 export const FormContact = () => {
+
+    const form = useRef<ElementRef<'form'>>(null);
+
+    const sendEmail = (e: any) => {
+        e.preventDefault();
+
+        if(!form.current) return;
+
+        emailjs
+            .sendForm('service_4tipxwh', 'template_fpujs7u', form.current, {
+                publicKey: 'h21KKm2pyEnr5XHA6',
+            })
+            .then(
+                () => {
+                    console.log('SUCCESS!');
+                },
+                (error) => {
+                    console.log('FAILED...', error.text);
+                },
+            );
+        e.target.reset();
+    };
+
+
     return (
-        <StyledFormContact>
+        <StyledFormContact id="contacts">
             <Container>
                 <FlexWrapper justify='space-between' gap='50px' align={'center'} wrap={'wrap'}>
 
@@ -17,13 +45,16 @@ export const FormContact = () => {
                         <MainTittleGradient>PLEASE CONTACT ME:</MainTittleGradient>
                     </MainTittle>
 
-                    <StyledForm>
+                    <StyledForm ref={form} onSubmit={sendEmail}>
                         <InputWrapper>
-                            <Field type='text' placeholder={'Your name'}/></InputWrapper>
+                            <Field type='text' placeholder={'Your name'} required name={'name'}/>
+                        </InputWrapper>
                         <InputWrapper>
-                            <Field type='email' placeholder={'Your email address'}/></InputWrapper>
+                            <Field type='email' placeholder={'Your email address'} required name={'email'}/>
+                        </InputWrapper>
                         <InputWrapper>
-                            <Field as={'textarea'} placeholder={'Your message'}/></InputWrapper>
+                            <Field as={'textarea'} placeholder={'Your message'} required name={'message'}/>
+                        </InputWrapper>
 
                         <StyledButton type={'submit'}>
                             Send
@@ -39,9 +70,10 @@ export const FormContact = () => {
 
 const StyledFormContact = styled.section`
     background-color: #1e1e1e;
+    position: relative;
     
     ${FlexWrapper}{
-        @media ${Theme.media.tablet} {
+        @media screen and (max-width: 1180px){
             justify-content: center;
         }
     }
@@ -66,6 +98,11 @@ const StyledForm = styled.form`
         resize: none;
         height: 100px;
     }
+    
+    @media screen and (max-width: 1178px){
+        max-width: 600px;
+    }
+    
 `
 
 const InputWrapper = styled.div`

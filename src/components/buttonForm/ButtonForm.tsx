@@ -32,7 +32,6 @@ export const StyledButton = styled.button`
             transform: translateX(10px);
             transition: all .4s ease;
     }
-    
         
         
         background: linear-gradient(174deg, #13b0f5 2.6%, #e70faa 100%);
@@ -43,18 +42,18 @@ export const StyledButton = styled.button`
     }
 
     &:active {
-            animation: jump 0.3s; /* Запуск анимации при нажатии */
+            animation: jump 0.5s; /* Запуск анимации при нажатии */
         }
 
         @keyframes jump {
             0% {
-                transform: translateY(0); /* Начальная позиция */
+                transform: translateX(0); /* Начальная позиция */
             }
             50% {
-                transform: translateY(-5px); /* Подпрыгиваем вверх на 20px */
+                transform: translateX(5px); /* Подпрыгиваем вверх на 20px */
             }
             100% {
-                transform: translateY(0); /* Возвращаемся обратно */
+                transform: translateX(0); /* Возвращаемся обратно */
             }
 
 `
