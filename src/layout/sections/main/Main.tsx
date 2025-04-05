@@ -18,7 +18,7 @@ export const Main = () => {
                         <MainTittleH1>
                             <Typewriter
                                 options={{
-                                    strings: ['A Web Developer.', 'A Frontend Developer.'],
+                                    strings: ['A Web Developer.', 'Frontend Developer.'],
                                     autoStart: true,
                                     loop: true,
                                 }}

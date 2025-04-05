@@ -8,7 +8,7 @@ export const MobileMenu = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const onBurgerClick = () => { setMenuOpen(!menuOpen); };
+    const onBurgerClick = () => { setMenuOpen(!menuOpen);};
 
     const items = [
         {
@@ -26,6 +26,8 @@ export const MobileMenu = () => {
     ]
 
 
+
+
     return (
         <StyledMobileMenu>
 
@@ -36,11 +38,12 @@ export const MobileMenu = () => {
             <MobileMenuPopUp isOpen={menuOpen} onClick={() => setMenuOpen(false)} >
                 <ul>
                     {items.map((arrayItems, index) => {
-                        return <li key={index}>
+                        return <li key={index} >
                             <StyledMenuMobileLink
                                 activeClass='active'
                                 to={arrayItems.href}
-                                smooth={true}>
+                                smooth={true}
+                                onClick={() => setMenuOpen(false)}>
                                 {arrayItems.title}
                             </StyledMenuMobileLink>
                         </li>
@@ -68,6 +71,8 @@ const BurgerButton = styled.button<{ isOpen: boolean }>`
     width: 200px;
     height: 200px;
     z-index: 99999;
+    
+    
 
     span {
         display: block;
@@ -150,6 +155,8 @@ const StyledMenuMobileLink = styled(Link)`
     font-weight: bold;
     line-height: 130%;
     cursor: pointer;
+    
+    
 
 
     &:active {
