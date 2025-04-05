@@ -114,13 +114,15 @@ const InputWrapper = styled.div`
         display: inline-block;
         position: absolute;
         width: 100%;
-        height: 2px;
+        height: 1px;
         background: rgb(66, 68, 110);
         bottom: -4px;
     }
     
     &:hover::before {
         background: linear-gradient(10deg, #13b0f5 2.6%, #e70faa 100%);
+        transition: ease-in-out 0.1s;
+        height: 3px;
     }
 `
 
@@ -141,11 +143,11 @@ const Field = styled.input`
     &::placeholder {
         color: ${Theme.colors.font};
         text-transform: capitalize;
-        vertical-align: bottom;
+        vertical-align: center;
     }
 
-    //&:focus-visible {
-    //    outline: 1px solid rgba(66, 68, 110, 0.51);;
-    //}
-
+    &:focus-visible {
+        outline: none;
+    }
+    
 `

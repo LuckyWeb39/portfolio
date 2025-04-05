@@ -15,8 +15,8 @@ export const Footer = () => {
                 <TopFooter>
                     <Logo/>
                     <FlexWrapper align={'center'} wrap={'wrap'} justify={'flex-end'}>
-                        <ContactsInfo>+7 968 999 58 99</ContactsInfo>
-                        <ContactsInfo>lukomskiy@gmail.com</ContactsInfo>
+                        <ContactsInfo href={"tel:+79689995899"}>+7 968 999 58 99</ContactsInfo>
+                        <ContactsInfo href={"mailto:lukomskiy@gmail.com"}>lukomskiy@gmail.com</ContactsInfo>
                         <ContactIcons/>
                     </FlexWrapper>
 
@@ -60,13 +60,20 @@ const DownFooter = styled.div`
     margin-bottom: 50px;
 `
 
-const ContactsInfo = styled.span`
+const ContactsInfo = styled.a`
     margin-right: 30px;
     font-family: "DM Sans", sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 1.44444;
     color: #a7a7a7;
+    
+    &:hover {
+        background: linear-gradient(90deg, #13b0f5 2.6%, #e70faa 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 `
 
 const Copirate = styled.span`
