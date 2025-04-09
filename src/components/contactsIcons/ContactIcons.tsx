@@ -11,7 +11,7 @@ export const ContactIcons = () => {
                 </a>
             </li>
             <li>
-                <a href="https://t.me/Lycky_Lukas" target="_blank">
+                <a href="https://t.me/LyckyWeb" target="_blank">
                     <Icon iconId={'twitter'} width={'30px'} height={'30px'} viewBox={'2 2 28 28'}/>
                 </a>
             </li>
