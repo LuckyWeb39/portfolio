@@ -16,7 +16,7 @@ export const Footer = () => {
                     <Logo/>
                     <FlexWrapper align={'center'} wrap={'wrap'} justify={'flex-end'}>
                         <ContactsInfo href={"tel:+79689995899"}>+7 968 999 58 99</ContactsInfo>
-                        <ContactsInfo href={"mailto:lukomskiy@gmail.com"}>lukomskiy@gmail.com</ContactsInfo>
+                        <ContactsInfo href={"mailto:lukomskiy.ac@gmail.com"}>lukomskiy.ac@gmail.com</ContactsInfo>
                         <ContactIcons/>
                     </FlexWrapper>
 
