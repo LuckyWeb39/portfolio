@@ -1,10 +1,9 @@
 import {FlexWrapper} from "../../../components/flexWrapper/FlexWrapper.tsx";
-import avatar from "../../../assets/images/MainPhoto.webp"
+import avatar from "../../../assets/images/MainPhoto.png"
 import styled from "styled-components";
 import {Theme} from "../../../styles/Theme.tsx";
 import {Container} from "../../../components/container/Container.tsx";
 import Typewriter from 'typewriter-effect';
-// import abstact from "../../../assets/images/Abstract.svg"
 
 export const Main = () => {
     return (
