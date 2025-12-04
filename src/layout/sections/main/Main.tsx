@@ -69,7 +69,6 @@ const AvatarBorderGradient = styled.div`
             top: 25px;
             left: -5px;
         }
-        
     } 
 `
 
